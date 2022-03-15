@@ -1,15 +1,18 @@
 
-import React from "react";
+import { React, useState} from "react";
 import { hot } from 'react-hot-loader/root';
 import PostList from "./PostList";
-// import Register from "./api/Register";
 
-const App = (props) => {
-  const { name } = props;
+import RegisterUser from "./RegisterUser";
+
+
+
+const App = () => {
   return (
     <>
-      <h1>Welcome, {name}</h1>
+      <h1>Strangers Things</h1>
       <PostList />
+      <RegisterUser />
     </>
   );
 }
