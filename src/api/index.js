@@ -22,7 +22,11 @@ export const registerNewUser = async (newUser) => {
             }
         })
     });
-}
+
+    const json = await response.json();
+    console.log(json);
+    return json;
+};
 
 
 
@@ -37,7 +41,7 @@ export const createNewPost = async (newPost) => {
         body: JSON.stringify(newPost)
     });
 
-    const json = await response.jason();
+    const json = await response.json();
     console.log(json);
     return json;
 };
