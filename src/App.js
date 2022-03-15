@@ -2,7 +2,10 @@
 import { React, useState} from "react";
 import { hot } from 'react-hot-loader/root';
 import PostList from "./PostList";
+
 import RegisterUser from "./RegisterUser";
+
+
 
 const App = () => {
   return (
