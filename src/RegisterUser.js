@@ -1,4 +1,4 @@
-import { React, useState} from 'react';
+import React, { useState } from 'react';
 import { registerNewUser } from './api';
 
 const RegisterUser = () => {
@@ -31,15 +31,16 @@ const RegisterUser = () => {
         </div>
 
         <form>
-            <input type="text" value={user} onChange={handleUserChange} />
-            <input type="password" id="password" value={password}
+            <input type="text" placeholder="User Name" value={user} onChange={handleUserChange} />
+            <input type="password" placeholder="Password" id="password" value={password}
              onChange={handlePasswordChange} />
-            <input type="password" id="confirm-password" value={password}
+
+            <input type="password" placeholder="Re-Enter Password" id="confirm-password" value={password}
              onChange={handlePasswordChange} />
+             
             <button onClick={handleRegisterClick}>Register!</button>
         </form>
       </>    
     );
 };
-
 export default RegisterUser;
