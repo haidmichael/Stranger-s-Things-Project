@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { loginUser } from "./api";
-import PostList from "./PostList";
 
 
-const Login = () => {
+const Login = (props) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const {setIsLoggedIn} = props;
+  
 
   const handleLogin = () => {
     event.preventDefault();
@@ -39,7 +39,6 @@ const Login = () => {
     setIsLoggedIn(!!localStorage.getItem("stranger_things_JWT"));
   }, []);
 
-  console.log("Is Logged In: ", isLoggedIn);
 
   return (
     <>
@@ -68,7 +67,6 @@ const Login = () => {
           </button>
         </form>
       </div>
-      {isLoggedIn && <PostList />}
     </>
   );
 };

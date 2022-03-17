@@ -1,5 +1,5 @@
 
-import  React from "react";
+import  React, { useState } from "react";
 import { hot } from 'react-hot-loader/root';
 import { testAuthentication } from "./api";
 import PostList from "./PostList";
@@ -10,12 +10,16 @@ import Login from "./Login"
 
 
 const App = () => {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
     <>
       <h1>Strangers Things</h1>
       <button onClick={ testAuthentication }>Test Auth</button>
       <RegisterUser />
-      <Login />
+      <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      {isLoggedIn && <PostList />}
     </>
   );
 }
