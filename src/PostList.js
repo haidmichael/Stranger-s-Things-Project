@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { getPosts } from './api';
 
 
-const cohortName = '2112-FTB-ET-WEB-PT'
-
-
 const PostList = () => {
     const [posts, setPosts] = useState([]);
 
@@ -13,8 +10,6 @@ const PostList = () => {
         const { data: {posts}, } = await getPosts({
             baseURL: "/posts"
         });
-
-        const { data: {posts}, } = await getPosts(`https://strangers-things.herokuapp.com/api/${cohortName}/posts`);
 
         console.log(posts);
         setPosts(posts);
