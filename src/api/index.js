@@ -22,24 +22,31 @@ export const registerNewUser = async (newUser) => {
             }
         })
     });
+    console.log(response);
+
+    const json = await response.json();
+    console.log(json);
+
+    localStorage.setItem('stranger_things_JWT', json.data.token)
+    return json;
 }
 
 export const createNewPost = async (newPost) => {
     const url = `${baseURL}/posts/`;
-    // const token = "stranger_things_JWT";
+    const token = "stranger_things_JWT";
     try {
         const response = await fetch(url, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer TOKEN_STRING_HERE' //`${token}`
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stingify({
                 post: {
-                    title: newPost.title,
-                    description: newPost.description,
-                    price: newPost.price,
-                    location: newPost.location,
+                    title: createNewPost.title,
+                    description: createNewPost.description,
+                    price: createNewPost.price,
+                    location: createNewPost.location,
                     willDeliver: true
                 }
             })

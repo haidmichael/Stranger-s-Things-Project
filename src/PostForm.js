@@ -9,6 +9,7 @@ const PostFrom = () => {
     const [description, setDescription] = useState([]);
     const [price, setPrice] = useState([]);
     const [location, setLocation] = useState([]);
+    const [willDeliver, setWillDeliver] = useState([]);
 
     const handleSubmit = async (ev) => {
         ev.preventDefault();
@@ -30,7 +31,9 @@ const PostFrom = () => {
             onChange={(ev) => setPrice(ev.target.value)} ></input>
             <input type="text" placeholder="location" value={location} 
             onChange={(ev) => setLocation(ev.target.value)} ></input>
-            <button type="submit">Submit Post</button>
+            <input type="checkbox" placeholder="Will Deliver" value={willDeliver}
+            onChange={(ev) => setWillDeliver(ev.target.value)}></input> Will Deliver
+            <button type="submit" >Submit Post</button>
         </form>
     </>
     );

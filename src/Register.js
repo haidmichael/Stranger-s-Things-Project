@@ -6,6 +6,10 @@ const RegisterUser = () => {
     const [password, setPassword]= useState("");
 
     const handleRegisterClick = () => {
+        event.preventDefault();
+
+        console.log("Creating a new user...");
+        
         const registerInfo = {
             user: user,
             password: password
