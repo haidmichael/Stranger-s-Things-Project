@@ -26,13 +26,13 @@ export const registerNewUser = async (newUser) => {
 
 export const createNewPost = async (newPost) => {
     const url = `${baseURL}/posts/`;
-    // const token =
+    // const token = "stranger_things_JWT";
     try {
         const response = await fetch(url, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer TOKEN_STRING_HERE'
+                'Authorization': 'Bearer TOKEN_STRING_HERE' //`${token}`
             },
             body: JSON.stingify({
                 post: {

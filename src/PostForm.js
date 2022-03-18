@@ -18,10 +18,10 @@ const PostFrom = () => {
 
     return (
     <>
-        <h3>
-            Add New Post
-        </h3>
         <form onSubmit={handleSubmit}>
+        <h3>
+            Create New Post
+        </h3>
             <input type="text" placeholder="title" value={title} 
             onChange={(ev) => setTitle(ev.target.value)}></input>
             <input type="text" placeholder="description" value={description} 
@@ -30,11 +30,10 @@ const PostFrom = () => {
             onChange={(ev) => setPrice(ev.target.value)} ></input>
             <input type="text" placeholder="location" value={location} 
             onChange={(ev) => setLocation(ev.target.value)} ></input>
-            <button type="submit">Submit</button>
+            <button type="submit">Submit Post</button>
         </form>
     </>
     );
 }
 
 export default PostFrom;
-//call <PostForm /> with in the App.js under the <h1>Post</h1>
