@@ -21,22 +21,31 @@ const App = () => {
           <div id="navLinks">
             <Link to="/">Home</Link>
             <Link to="/Post">Post</Link>
+            <Link to="/Login">Login</Link>
+            <Link to="/PostList">Posts</Link>
           </div>
         ) : (
           <div id="navLinks">
             <Link to="/">Home</Link>
             <Link to="/Post">Post</Link>
-            <Link to="/Register">Register</Link>
+            <Link to="/RegisterUser">Register</Link>
+            <Link to="/Login">Login</Link>
           </div>     
         )}
       <h1>Strangers Things</h1>
-      <PostForm posts={posts} setPosts={setPosts}/>
+      <Route path="/PostForm">
+        <PostForm posts={posts} setPosts={setPosts}/>
+      </Route>
 
-      <Route path="/Register"> 
+      <Route path="/RegisterUser"> 
         <RegisterUser />
-      </Route>   
-      <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-      {isLoggedIn && <PostList posts={posts} setPosts={setPosts}/>}
+      </Route>
+      <Route path="/Login">   
+        <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      </Route>
+      <Route path="/PostList">
+        {isLoggedIn && <PostList posts={posts} setPosts={setPosts}/>}
+      </Route>
     </Router>  
     </>
   );
