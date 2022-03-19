@@ -24,6 +24,7 @@ const config = {
       directory: './dist'
     }
   }
+  
 };
 
 module.exports = config;

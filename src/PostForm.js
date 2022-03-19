@@ -19,7 +19,7 @@ const PostFrom = () => {
 
     return (
     <>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='PostCard'>
         <h3>
             Create New Post
         </h3>
@@ -31,12 +31,15 @@ const PostFrom = () => {
             onChange={(ev) => setPrice(ev.target.value)} ></input>
             <input type="text" placeholder="location" value={location} 
             onChange={(ev) => setLocation(ev.target.value)} ></input>
-            <input type="checkbox" placeholder="Will Deliver" value={willDeliver}
+            <input type="checkbox" placeholder="Will Deliver" value={willDeliver} 
             onChange={(ev) => setWillDeliver(ev.target.value)}></input> Will Deliver
             <button type="submit" >Submit Post</button>
         </form>
     </>
     );
 }
-
+// Stuff to work on Saturday: Added label to check box. Figure out how to populate the post 
+//once it is completed. It might be because my code is not linked up to the other branch's.
+//fix CSS in the webpack.config. Ran it in the terminal and can't get it to work porperly.
+//Merge all branch's 
 export default PostFrom;

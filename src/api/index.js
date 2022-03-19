@@ -41,7 +41,7 @@ export const createNewPost = async (newPost) => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stingify({
+            body: JSON.stringify({
                 post: {
                     title: createNewPost.title,
                     description: createNewPost.description,
