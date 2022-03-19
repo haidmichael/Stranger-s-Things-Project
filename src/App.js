@@ -5,7 +5,8 @@ import { testAuthentication } from "./api";
 import PostList from "./PostList";
 import RegisterUser from "./RegisterUser";
 import Login from "./Login"
-
+// import Navbar from "./Navbar"
+// import { BrowserRouter as Router, Routes } from "react-router-dom";
 
 
 
@@ -16,6 +17,10 @@ const App = () => {
   return (
     <>
       <h1>Strangers Things</h1>
+      {/* <Navbar setIsLoggedIn={setIsLoggedIn} />
+      <Router>
+        
+      </Router> */}
       <button onClick={ testAuthentication }>Test Auth</button>
       <RegisterUser />
       <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
