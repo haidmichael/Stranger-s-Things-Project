@@ -8,7 +8,7 @@ export const getPosts = async () => {
     return json;
 }
 
-export const registerNewUser = async (newUser) => {
+export const registerNewUser = async (userObject) => {
     const url = `${baseURL}/users/register`;
     const response = await fetch(url, {
         method: "POST",
@@ -17,10 +17,10 @@ export const registerNewUser = async (newUser) => {
         },
         body: JSON.stringify({
             user: {
-                usernanme: newUser.user,
-                password: newUser.password,
-            }
-        })
+                username: userObject.user,
+                password: userObject.password,
+            },
+        }),
     });
     console.log(response);
 
@@ -56,3 +56,43 @@ export const createNewPost = async (newPost) => {
     }
     catch(error){console.error(error)}
 }
+};
+
+export const loginUser = async (userObject) => {
+    const url = `${baseURL}/users/login`;
+    const response = await fetch (url, {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            user: {
+                username: userObject.user,
+                password: userObject.password,
+            },
+        }),
+    });
+
+    console.log(response);
+
+    const json = await response.json();
+    console.log(json);
+
+    localStorage.setItem('stranger_things_JWT', json.data.token)
+    return json;
+};
+
+
+export const testAuthentication = async () => {
+    const url = `${baseURL}/test/me`;
+
+    const response = await fetch (url)
+    console.log(response);
+
+    const json = await response.json();
+    console.log(json)
+
+    return json;
+}
+
+
