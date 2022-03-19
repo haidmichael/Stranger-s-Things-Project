@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import React, {  useState } from 'react';
-=======
 import React, { useState } from 'react';
 import { registerNewUser } from './api';
->>>>>>> main
 
 const RegisterUser = () => {
     const [user, setUser] = useState("");

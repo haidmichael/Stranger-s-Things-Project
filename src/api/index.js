@@ -33,7 +33,7 @@ export const registerNewUser = async (userObject) => {
 
 export const createNewPost = async (newPost) => {
     const url = `${baseURL}/posts/`;
-    const token = "stranger_things_JWT";
+    const token = localStorage.getItem("stranger_things_JWT");
     try {
         const response = await fetch(url, {
             method: "POST",
@@ -41,22 +41,15 @@ export const createNewPost = async (newPost) => {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             },
-            body: JSON.stringify({
-                post: {
-                    title: createNewPost.title,
-                    description: createNewPost.description,
-                    price: createNewPost.price,
-                    location: createNewPost.location,
-                    willDeliver: true
-                }
-            })
+            body: JSON.stringify(
+                newPost
+            )
         })
         const data = response.json();
         return data;
     }
     catch(error){console.error(error)}
 }
-};
 
 export const loginUser = async (userObject) => {
     const url = `${baseURL}/users/login`;

@@ -14,12 +14,12 @@ import Login from "./Login"
 const App = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [posts, setPosts] = useState([]);
 
   return (
     <>
       <h1>Strangers Things</h1>
-      <PostForm />
-      <PostList />
+      <PostForm posts={posts} setPosts={setPosts}/>
       {/* <Navbar setIsLoggedIn={setIsLoggedIn} />
       <Router>
         
@@ -27,7 +27,7 @@ const App = () => {
       <button onClick={ testAuthentication }>Test Auth</button>
       <RegisterUser />
       <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-      {isLoggedIn && <PostList />}
+      {isLoggedIn && <PostList posts={posts} setPosts={setPosts}/>}
     </>
   );
 }
