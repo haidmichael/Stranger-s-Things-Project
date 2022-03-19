@@ -6,11 +6,11 @@ export const getPosts = async () => {
     const response = await fetch(url)
     const json = await response.json()
     return json;
-} 
+}
 
 export const registerNewUser = async (userObject) => {
     const url = `${baseURL}/users/register`;
-    const response = await fetch (url, {
+    const response = await fetch(url, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -22,7 +22,6 @@ export const registerNewUser = async (userObject) => {
             },
         }),
     });
-
     console.log(response);
 
     const json = await response.json();
@@ -30,7 +29,27 @@ export const registerNewUser = async (userObject) => {
 
     localStorage.setItem('stranger_things_JWT', json.data.token)
     return json;
-};
+}
+
+export const createNewPost = async (newPost) => {
+    const url = `${baseURL}/posts/`;
+    const token = localStorage.getItem("stranger_things_JWT");
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(
+                newPost
+            )
+        })
+        const data = response.json();
+        return data;
+    }
+    catch(error){console.error(error)}
+}
 
 export const loginUser = async (userObject) => {
     const url = `${baseURL}/users/login`;
