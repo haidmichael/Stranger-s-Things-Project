@@ -6,6 +6,9 @@ const RegisterUser = () => {
     const [password, setPassword]= useState("");
 
     const handleRegisterClick = () => {
+        event.preventDefault();
+
+        console.log("Creating a new user...");
         const registerInfo = {
             user: user,
             password: password
@@ -38,9 +41,10 @@ const RegisterUser = () => {
             <input type="password" placeholder="Re-Enter Password" id="confirm-password" value={password}
              onChange={handlePasswordChange} />
              
-            <button onClick={handleRegisterClick}>Register!</button>
+            <button onClick={handleRegisterClick}>Register!</button>  
         </form>
       </>    
     );
 };
+
 export default RegisterUser;
