@@ -6,7 +6,7 @@ import RegisterUser from "./RegisterUser";
 import PostForm from "./PostForm"
 import Login from "./Login"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-
+import Home from "./Home"
 
 
 const App = () => {
@@ -18,15 +18,15 @@ const App = () => {
     <>
     <Router>
     {isLoggedIn ?(
-          <div id="navLinks">
-            <Link to="/">Home</Link>
+          <div id="navLinks" className="loggedInNav">
+            <Link to="/Home">Home</Link>
             <Link to="/PostForm">Post</Link>
             <Link to="/Login">Login</Link>
             <Link to="/PostList">Posts</Link>
           </div>
         ) : (
-          <div id="navLinks">
-            <Link to="/">Home</Link>
+          <div id="navLinks" className="loggedOutNav">
+            <Link to="/Home">Home</Link>
             <Link to="/PostForm">Post</Link>
             <Link to="/RegisterUser">Register</Link>
             <Link to="/Login">Login</Link>
@@ -36,7 +36,10 @@ const App = () => {
       <Route path="/PostForm">
         <PostForm posts={posts} setPosts={setPosts}/>
       </Route>
-
+      
+      <Route path="/Home">
+        <Home />
+      </Route>    
       <Route path="/RegisterUser"> 
         <RegisterUser />
       </Route>
