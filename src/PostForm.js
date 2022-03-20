@@ -4,7 +4,7 @@ import { createNewPost } from './api';
 
 
 
-const PostFrom = (props) => {
+const PostForm = (props) => {
     const {
         setPosts,
         posts
@@ -61,4 +61,4 @@ const PostFrom = (props) => {
 //once it is completed. It might be because my code is not linked up to the other branch's.
 //fix CSS in the webpack.config. Ran it in the terminal and can't get it to work porperly.
 //Merge all branch's 
-export default PostFrom;
+export default PostForm;

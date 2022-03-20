@@ -20,14 +20,14 @@ const App = () => {
     {isLoggedIn ?(
           <div id="navLinks">
             <Link to="/">Home</Link>
-            <Link to="/Post">Post</Link>
+            <Link to="/PostForm">Post</Link>
             <Link to="/Login">Login</Link>
             <Link to="/PostList">Posts</Link>
           </div>
         ) : (
           <div id="navLinks">
             <Link to="/">Home</Link>
-            <Link to="/Post">Post</Link>
+            <Link to="/PostForm">Post</Link>
             <Link to="/RegisterUser">Register</Link>
             <Link to="/Login">Login</Link>
           </div>     
@@ -45,6 +45,9 @@ const App = () => {
       </Route>
       <Route path="/PostList">
         {isLoggedIn && <PostList posts={posts} setPosts={setPosts}/>}
+      </Route>
+      <Route path="/PostForm">
+          <PostForm isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </Route>
     </Router>  
     </>
