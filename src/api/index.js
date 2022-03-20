@@ -89,3 +89,50 @@ export const testAuthentication = async () => {
 }
 
 
+export const editPost = async (newPost) => {
+    const url = `${baseURL}/posts/`;
+    const token = localStorage.getItem("stranger_things_JWT");
+    try {
+        const response = await fetch(url, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(
+                newPost
+            )
+        })
+        const data = response.json();
+        if(data && data.title) {
+            newPosts = posts.map(post => {
+                if(post.id === postId) {
+                    return data;
+                } else {
+                    return post;
+                }
+            })
+        }
+    }
+    catch(error){console.error(error)}
+}
+
+
+export const handleDelete = async (postIdToDelete) => {
+    const url = `${baseURL}/posts/POST_ID`;
+    const token = localStorage.getItem("stranger_things_JWT");
+    const response = await fetch(url, {
+                    method: "DELETE",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(
+                    )
+                })
+                const data = await response.json();
+                if(data) {
+                    const newPost = posts.filter(post => post.id !== postIdToDelete);
+                    setPost(newPost);
+                }
+}

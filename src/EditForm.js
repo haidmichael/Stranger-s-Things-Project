@@ -1,16 +1,12 @@
 import React from 'react';
 import { useState } from "react";
-import { createNewPost, handleDelete } from './api';
+import { editPost, handleDelete } from './api';
 
-
-
-const PostForm = (props) => {
+const EditForm = (props) => {
     const {
         setPosts,
         posts
     } = props
-
-
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -30,7 +26,7 @@ const PostForm = (props) => {
             
             }
         }
-       const newPost = await createNewPost(postObject); console.log(newPost)
+       const newPost = await editPost(postObject); console.log(newPost)
        setPosts([...posts, newPost.data.post])
        setTitle('');
        setDescription('');
@@ -46,15 +42,15 @@ const PostForm = (props) => {
     <>
         <form onSubmit={handleSubmit} className='PostCard'>
         <h3>
-            Create New Post
+            Edit Your Post
         </h3>
             <input className='subBox' type="text" placeholder="title" value={title} 
             onChange={(ev) => setTitle(ev.target.value)}></input>
-            <input className='subBox' type="text" placeholder="description" value={description} 
+            <input type="text" placeholder="description" value={description} 
             onChange={(ev) => setDescription(ev.target.value)} ></input>
-            <input className='subBox' type="text" placeholder="price" value={price} 
+            <input type="text" placeholder="price" value={price} 
             onChange={(ev) => setPrice(ev.target.value)} ></input>
-            <input className='subBox' type="text" placeholder="location" value={location} 
+            <input type="text" placeholder="location" value={location} 
             onChange={(ev) => setLocation(ev.target.value)} ></input>
             
             <label >
@@ -68,4 +64,4 @@ const PostForm = (props) => {
     
 }
 
-export default PostForm;
+export default EditForm;

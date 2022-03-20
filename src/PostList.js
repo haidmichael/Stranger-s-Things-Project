@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { getPosts } from './api';
+import React, { useEffect } from 'react';
+import { getPosts, handleDelete, editPost } from './api';
+
 
 const PostList = (props) => {
-    const{posts, setPosts} = props;
+    const{posts, setPosts, isEditOpen, setIsEditOpen } = props;
     useEffect(async () => {
+        
 
         const { data: {posts}, } = await getPosts({
             baseURL: "/posts"
@@ -12,6 +14,11 @@ const PostList = (props) => {
         console.log(posts);
         setPosts(posts);
     }, []);
+
+    const handleEdit = (e) => {
+        e.preventDefault() 
+        setIsEditOpen(!isEditOpen)
+    }
 
     return (
         <div>
@@ -22,6 +29,8 @@ const PostList = (props) => {
                     <p>Location: {post.location}</p>
                     <p>Price: {post.price}</p>
                     <p>User: {post.author.username}</p>
+                    <button type='button' className='editBtn' onClick={handleEdit} >Edit</button>
+                    <button type='button' className='deleteBtn' onClick={() => handleDelete(post.id)} >Delete</button>
                 </div>
             )}
         </div>
