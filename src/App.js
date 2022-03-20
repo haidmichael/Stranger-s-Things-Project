@@ -25,7 +25,7 @@ const App = () => {
             <Link to="/PostList">Posts</Link>
           </div>
         ) : (
-          <div id="navLinks" className="loggedOutNav">
+          <div id="navLinks" className="loggedinNav">
             <Link to="/Home">Home</Link>
             <Link to="/PostForm">Post</Link>
             <Link to="/RegisterUser">Register</Link>
@@ -47,7 +47,7 @@ const App = () => {
         <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </Route>
       <Route path="/PostList">
-        {isLoggedIn && <PostList posts={posts} setPosts={setPosts}/>}
+        <PostList isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </Route>
       <Route path="/PostForm">
           <PostForm isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
