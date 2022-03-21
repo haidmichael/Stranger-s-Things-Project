@@ -5,14 +5,18 @@ import PostList from "./PostList";
 import RegisterUser from "./RegisterUser";
 import PostForm from "./PostForm"
 import Login from "./Login"
+import EditForm from "./EditForm";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./Home"
+
 
 
 const App = () => {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [posts, setPosts] = useState([]);
+  const[postId, setPostId] = useState(null);
+  const[isEditOpen, setIsEditOpen] = useState(false);
 
   return (
     <>
@@ -33,10 +37,7 @@ const App = () => {
           </div>     
         )}
       <h1>Strangers Things</h1>
-      <Route path="/PostForm">
-        <PostForm posts={posts} setPosts={setPosts}/>
-      </Route>
-      
+
       <Route path="/Home">
         <Home />
       </Route>    
@@ -54,6 +55,20 @@ const App = () => {
           <PostForm isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </Route>
     </Router>  
+
+      {
+        isEditOpen
+       ? <EditForm posts={posts} setPosts={setPosts} 
+        postId={postId} setPostId={setPostId} isEditOpen={isEditOpen} setIsEditOpen={setIsEditOpen} /> :
+      <PostForm posts={posts} 
+      setPosts={setPosts} isEditOpen={isEditOpen} setIsEditOpen={setIsEditOpen}/>
+      }
+      <PostForm posts={posts} setPosts={setPosts}/>
+
+      <RegisterUser />
+      <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      {isLoggedIn && <PostList posts={posts} setPosts={setPosts} isEditOpen={isEditOpen} setIsEditOpen={setIsEditOpen}/>}
+      
     </>
   );
 }
