@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from "react";
-import { editPost, handleDelete } from './api';
+import { editPost } from './api';
 
 const EditForm = (props) => {
     const {
@@ -33,7 +33,6 @@ const EditForm = (props) => {
        setPrice('');
        setLocation('');
        setWillDeliver('');
-       handleDelete();
     }
     const handleCheckChange = () => {
         setWillDeliver(!willDeliver);
@@ -46,11 +45,11 @@ const EditForm = (props) => {
         </h3>
             <input className='subBox' type="text" placeholder="title" value={title} 
             onChange={(ev) => setTitle(ev.target.value)}></input>
-            <input type="text" placeholder="description" value={description} 
+            <input className='subBox' type="text" placeholder="description" value={description} 
             onChange={(ev) => setDescription(ev.target.value)} ></input>
-            <input type="text" placeholder="price" value={price} 
+            <input className='subBox' type="text" placeholder="price" value={price} 
             onChange={(ev) => setPrice(ev.target.value)} ></input>
-            <input type="text" placeholder="location" value={location} 
+            <input className='subBox' type="text" placeholder="location" value={location} 
             onChange={(ev) => setLocation(ev.target.value)} ></input>
             
             <label >

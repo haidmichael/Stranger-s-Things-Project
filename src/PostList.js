@@ -1,12 +1,20 @@
 import React, { useEffect } from 'react';
-import { getPosts, handleDelete, editPost } from './api';
+import { getPosts, handleDeletePost } from './api';
 
 
 const PostList = (props) => {
     const{posts, setPosts, isEditOpen, setIsEditOpen } = props;
-    useEffect(async () => {
-        
 
+    // function handleEdit(id) {
+    //     isEditOpen(id, { title: "New Post = Update"})
+    // }
+    async function handleDelete(id) {
+        handleDeletePost(id);
+            const newPost = posts.filter(post => post.id !== id);
+            setPosts(newPost);
+    }
+
+    useEffect(async () => {
         const { data: {posts}, } = await getPosts({
             baseURL: "/posts"
         });

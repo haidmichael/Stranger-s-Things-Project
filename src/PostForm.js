@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from "react";
-import { createNewPost, handleDelete } from './api';
+import { createNewPost } from './api';
 
 
 
@@ -26,8 +26,7 @@ const PostForm = (props) => {
                 description: description,
                 price: price,
                 location: location,
-                willDeliver: willDeliver
-            
+                willDeliver: willDeliver        
             }
         }
        const newPost = await createNewPost(postObject); console.log(newPost)
@@ -37,7 +36,6 @@ const PostForm = (props) => {
        setPrice('');
        setLocation('');
        setWillDeliver('');
-       handleDelete();
     }
     const handleCheckChange = () => {
         setWillDeliver(!willDeliver);

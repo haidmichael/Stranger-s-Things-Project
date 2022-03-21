@@ -89,10 +89,10 @@ export const testAuthentication = async () => {
 }
 
 
-export const editPost = async (newPost) => {
-    const url = `${baseURL}/posts/`;
+export const editPost = async (posts, setPosts) => {
+    const url = `${baseURL}/posts/POST_ID`;
     const token = localStorage.getItem("stranger_things_JWT");
-    try {
+   
         const response = await fetch(url, {
             method: "PATCH",
             headers: {
@@ -100,25 +100,27 @@ export const editPost = async (newPost) => {
                 'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify(
-                newPost
             )
-        })
+        });
         const data = response.json();
-        if(data && data.title) {
-            newPosts = posts.map(post => {
-                if(post.id === postId) {
-                    return data;
-                } else {
-                    return post;
-                }
-            })
-        }
-    }
-    catch(error){console.error(error)}
+        console.log(data)
+        return data;
+        // if(data && data.title) {
+        //     const newPosts = posts.map(post => {
+        //         if(post.id === postId) {
+        //             return data;
+        //         } else {
+        //             return post;
+        //         }
+        //     });
+        //     setPosts(newPosts); 
+        // }
+    
+    // catch(error){console.error(error)}
 }
 
 
-export const handleDelete = async (postIdToDelete) => {
+export const handleDeletePost = async () => {
     const url = `${baseURL}/posts/POST_ID`;
     const token = localStorage.getItem("stranger_things_JWT");
     const response = await fetch(url, {
@@ -130,9 +132,7 @@ export const handleDelete = async (postIdToDelete) => {
                     body: JSON.stringify(
                     )
                 })
-                const data = await response.json();
-                if(data) {
-                    const newPost = posts.filter(post => post.id !== postIdToDelete);
-                    setPost(newPost);
-                }
+                const json = await response.json();
+                return json;
+
 }
