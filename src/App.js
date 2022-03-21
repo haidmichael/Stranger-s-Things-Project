@@ -47,7 +47,8 @@ const App = () => {
         <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       </Route>
       <Route path="/PostList">
-        <PostList isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <PostList isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}
+        posts={posts} setPosts={setPosts} />
       </Route>
       <Route path="/PostForm">
           <PostForm isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
