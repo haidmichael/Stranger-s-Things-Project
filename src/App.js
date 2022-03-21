@@ -63,7 +63,6 @@ const App = () => {
       <PostForm posts={posts} 
       setPosts={setPosts} isEditOpen={isEditOpen} setIsEditOpen={setIsEditOpen}/>
       }
-      <PostForm posts={posts} setPosts={setPosts}/>
 
       <RegisterUser />
       <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />

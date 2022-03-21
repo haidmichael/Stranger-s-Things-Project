@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { getPosts } from './api';
-import { getPosts, handleDeletePost } from './api';
+import { handleDeletePost } from './api';
 
 
 const PostList = (props) => {
