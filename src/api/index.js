@@ -89,3 +89,50 @@ export const testAuthentication = async () => {
 }
 
 
+export const editPost = async (posts, setPosts) => {
+    const url = `${baseURL}/posts/POST_ID`;
+    const token = localStorage.getItem("stranger_things_JWT");
+   
+        const response = await fetch(url, {
+            method: "PATCH",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(
+            )
+        });
+        const data = response.json();
+        console.log(data)
+        return data;
+        // if(data && data.title) {
+        //     const newPosts = posts.map(post => {
+        //         if(post.id === postId) {
+        //             return data;
+        //         } else {
+        //             return post;
+        //         }
+        //     });
+        //     setPosts(newPosts); 
+        // }
+    
+    // catch(error){console.error(error)}
+}
+
+
+export const handleDeletePost = async () => {
+    const url = `${baseURL}/posts/POST_ID`;
+    const token = localStorage.getItem("stranger_things_JWT");
+    const response = await fetch(url, {
+                    method: "DELETE",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(
+                    )
+                })
+                const json = await response.json();
+                return json;
+
+}

@@ -42,7 +42,7 @@ const Login = (props) => {
 
   return (
     <>
-      <div id="login">
+      <div id="login" className="loginStyle">
         <form>
           <label>Username</label>
           <input

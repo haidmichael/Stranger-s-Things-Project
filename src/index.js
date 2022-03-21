@@ -5,6 +5,5 @@ import css from "./style.css";
 
 css
 
-
 var mountNode = document.getElementById("app");
 ReactDOM.render(<App name="Jane" />, mountNode);
