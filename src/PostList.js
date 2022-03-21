@@ -1,10 +1,7 @@
 import React, { useEffect } from 'react';
-<<<<<<< HEAD
 import { getPosts } from './api';
-=======
 import { getPosts, handleDeletePost } from './api';
 
->>>>>>> c8bfb08f3948155cc6a654036bec021309b41e2a
 
 const PostList = (props) => {
     const{posts, setPosts, isEditOpen, setIsEditOpen } = props;

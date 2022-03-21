@@ -37,7 +37,7 @@ const App = () => {
           </div>     
         )}
       <h1>Strangers Things</h1>
-
+      
       <Route path="/Home">
         <Home />
       </Route>    
