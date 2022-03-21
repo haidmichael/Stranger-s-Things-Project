@@ -33,9 +33,6 @@ const App = () => {
           </div>     
         )}
       <h1>Strangers Things</h1>
-      <Route path="/PostForm">
-        <PostForm posts={posts} setPosts={setPosts}/>
-      </Route>
       
       <Route path="/Home">
         <Home />
